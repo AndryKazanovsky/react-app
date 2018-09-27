@@ -1,0 +1,9 @@
+.home {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.film-image {
+    width: 200px;
+    height: 200px;
+}
