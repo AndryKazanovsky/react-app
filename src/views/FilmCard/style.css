@@ -1,0 +1,10 @@
+
+.film-image {
+    width: 200px;
+    height: 200px;
+}
+.film {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

@@ -1,30 +1,14 @@
 import React from 'react';
+import './style.css';
 import films from '../../dicts/films';
-import './styles.css';
+import FilmCard from '../FilmCard';
 
 export default function Home() {
   return (
     <div className={'home'}>
-      {films.data.map(film => {
-        return (
-          <div className={'film'} key={film.id}>
-            <img className={'film-image'} src={film.image} alt=""/>
-            <a>{film.title}</a>
-            <p>{film.description}</p>
-            <p>{film.year}</p>
-            <p>
-              {film.actors.map((actor, i, array) => {
-                const isLast = i + 1 === array.length;
-                return (
-                  <a key={actor}>
-                    {`${actor}${isLast ? '' : ', '}`}
-                  </a>
-                );
-              })}
-            </p>
-          </div>
-        );
-      })}
+        {/*{data.map((film, i) =>*/}
+            {/*<FilmCard key={film.id} />*/}
+        {/*)}*/}
     </div>
   );
 }
