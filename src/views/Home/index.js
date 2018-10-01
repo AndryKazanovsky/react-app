@@ -25,11 +25,13 @@ class Home extends React.Component {
   };
   sortByName = () => {
     const { sortNameValue } = this.state;
-    const sortedFilmsByName = films.data.sort((a, b) => a.title - b.title);
+    // const sortedFilmsByName = films.data.sort((a, b) => b.title > a.title);
     this.setState({
-        // films: sortNameValue === 'a-z' ?
-            sortNameValue: 'a-z' ? 'a-z' :
-    })
+        films: films.data.sort((a, b) => {
+          return sortNameValue === 'a-z' ? b.title > a.title : b.title < a.title;
+        }),
+        sortNameValue: sortNameValue === 'a-z' ? 'z-a' : 'a-z',
+    });
   };
 
   sortByYear = () => {
@@ -42,18 +44,20 @@ class Home extends React.Component {
     });
   };
   render() {
-    const { films, reverseStatus, sortYearValue } = this.state;
+    const { films, reverseStatus, sortYearValue, sortNameValue } = this.state;
     return (
       <div className={'home'}>
         <div onClick={this.reverseFilms}>
           reverse {reverseStatus === 'up' ? '^' : 'v'}
         </div>
-        <div onClick={this.sortByName}>sort by name</div>
+        <div onClick={this.sortByName}>
+            sort by name {`(${sortNameValue} first)`}
+        </div>
         <div onClick={this.sortByYear}>
           sort by year {`(${sortYearValue} first)`}
         </div>
-        // select с выбором года фильма. при выборе года - фильтруй фильмы на
-        совпадение по году
+         {/*select с выбором года фильма. при выборе года - фильтруй фильмы на*/}
+        {/*совпадение по году*/}
         {films.map(film => (
           <FilmCard key={film.id} data={film} onClick={this.onCardClick} />
         ))}
