@@ -1,0 +1,20 @@
+.footer-container {
+    height: 200px;
+    width: 100%;
+    background-color: #252525;
+    color: white;
+    padding: 10px 0 10px 0;
+    text-align: center;
+}
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.footer-content div {
+    height: 100px;
+    width: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}

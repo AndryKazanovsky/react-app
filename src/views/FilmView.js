@@ -1,6 +1,6 @@
 import React from 'react';
-import FilmCard from '../../components/FilmCard';
-import films from '../../dicts/films';
+import FilmCard from '../components/FilmCard';
+import films from '../dicts/films';
 
 export default function Film(props) {
   const filmId = props.match.params.id;

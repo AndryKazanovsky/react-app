@@ -1,0 +1,23 @@
+.home {
+
+}
+.film-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0 20px 0 20px;
+}
+.filters-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #252525;
+    margin: 0 0 20px 0;
+    padding: 20px 0 20px 0;
+}
+.filters-container div{
+    width: 200px;
+    color: white;
+    align-self: center;
+    text-align: center;
+    padding: 5px 0 5px 0;
+}

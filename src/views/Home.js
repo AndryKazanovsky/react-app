@@ -1,8 +1,10 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import './style.css';
-import films from '../../dicts/films';
-import FilmCard from '../../components/FilmCard';
+import './Home.css';
+import films from '../dicts/films';
+import FilmCard from '../components/FilmCard';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 
 class Home extends React.Component {
   constructor(props) {
@@ -25,7 +27,6 @@ class Home extends React.Component {
   };
   sortByName = () => {
     const { sortNameValue } = this.state;
-    // const sortedFilmsByName = films.data.sort((a, b) => b.title > a.title);
     this.setState({
         films: films.data.sort((a, b) => {
           return sortNameValue === 'a-z' ? b.title > a.title : b.title < a.title;
@@ -47,20 +48,26 @@ class Home extends React.Component {
     const { films, reverseStatus, sortYearValue, sortNameValue } = this.state;
     return (
       <div className={'home'}>
-        <div onClick={this.reverseFilms}>
-          reverse {reverseStatus === 'up' ? '^' : 'v'}
-        </div>
-        <div onClick={this.sortByName}>
-            sort by name {`(${sortNameValue} first)`}
-        </div>
-        <div onClick={this.sortByYear}>
-          sort by year {`(${sortYearValue} first)`}
-        </div>
+          {/*<Header></Header>*/}
+          <div className={'filters-container'}>
+              <div onClick={this.reverseFilms}>
+                  reverse {reverseStatus === 'up' ? '^' : 'v'}
+              </div>
+              <div onClick={this.sortByName}>
+                  sort by name {`(${sortNameValue} first)`}
+              </div>
+              <div onClick={this.sortByYear}>
+                  sort by year {`(${sortYearValue} first)`}
+              </div>
+          </div>
          {/*select с выбором года фильма. при выборе года - фильтруй фильмы на*/}
         {/*совпадение по году*/}
+        <div className={'film-card-container'}>
         {films.map(film => (
           <FilmCard key={film.id} data={film} onClick={this.onCardClick} />
         ))}
+        </div>
+          <Footer></Footer>
       </div>
     );
   }
